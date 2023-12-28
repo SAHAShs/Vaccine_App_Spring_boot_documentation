@@ -1,0 +1,333 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li><a href="#welcome-to-vaccine-app">Welcome to Vaccine App!</a></li>
+<li><a href="#project-structure">Project Structure</a>
+<ul>
+<li><a href="#pom.xml">pom.xml</a></li>
+<li><a href="#application.properties">application.properties</a></li>
+<li><a href="#vaccine-application">Vaccine Application</a></li>
+<li><a href="#controller-classes">Controller Classes</a></li>
+<li><a href="#service-classes">Service Classes</a></li>
+<li><a href="#entity-classes">Entity Classes</a></li>
+</ul>
+</li>
+<li><a href="#dao-classes">DAO Classes</a></li>
+<li><a href="#database">DataBase</a>
+<ul>
+<li><a href="#option-1-manual-database-and-table-creation">Option 1: Manual Database and Table Creation</a></li>
+<li><a href="#option-2-automatic-database-and-table-creation-with-spring-boot">Option 2: Automatic Database and Table Creation with Spring Boot</a></li>
+</ul>
+</li>
+<li><a href="#jsp-pages">JSP Pages</a>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><a href="#flow-chart">Flow Chart</a></li>
+<li><a href="#watch-on-youtube">Watch on Youtube</a></li>
+<li><a href="#created-by">Created By</a></li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h1 id="welcome-to-vaccine-app">Welcome to Vaccine App!</h1>
+<p>Hi!, the Vaccination Drive Application,a demonstration project highlighting the capabilities of a vaccination portal tailored for employees. Built using the latest technologies, including Spring Boot 3.2 and Java 17,this portal illustrates how organizations can streamline the vaccination registration process for their workforce and enables employees to seamlessly register for the upcoming vaccination drive.</p>
+<h1 id="project-structure">Project Structure</h1>
+<p>vaccine_app/<br>
+||-- src/<br>
+|-- main/<br>
+|-- java/<br>
+|-- com/<br>
+|-- tap/<br>
+|-- vaccine/<br>
+|-- controller/<br>
+– AddMemberController.java<br>
+– ForgotController.java<br>
+– LoginController.java<br>
+– RegisterController.java<br>
+|-- dao/<br>
+– AddMemberDao.java<br>
+– ForgotPassDao.java<br>
+– LoginDao.java<br>
+– RegisterDao.java<br>
+|-- model/<br>
+– MemberEntity.java<br>
+– RegisterEntity.java<br>
+|-- service/<br>
+– AddMemberService.java<br>
+– ForgotPassService.java<br>
+– LoginService.java<br>
+– RegisterService.java<br>
+|-- VaccineAppApplication.java<br>
+|       |-- resources/<br>
+– application.properties<br>
+|      |-- webapp/<br>
+|-- WEB-INF/<br>
+|-- homeviews<br>
+–home.jsp<br>
+–addMember.jsp<br>
+|-- loginviews<br>
+–login.jsp<br>
+|-- registerViews<br>
+–register.jsp<br>
+|-- forgotpassviews<br>
+–forgotpass.jsp<br>
+|-- css/<br>
+– index.css<br>
+– logout.css<br>
+– login.css<br>
+– register.css<br>
+– home.css<br>
+– addmember.css<br>
+– forgot.css<br>
+|-- script/<br>
+– login.js<br>
+– register.js<br>
+– home.js<br>
+– forgot.js<br>
+|-- images/<br>
+– logo<br>
+|-- index.jsp<br>
+|-- logout.jsp<br>
+||-- pom.xml</p>
+<h2 id="pom.xml">pom.xml</h2>
+<p><strong>Dependecies</strong></p>
+<ul>
+<li><strong>Spring Boot Starter Data JPA</strong></li>
+</ul>
+<blockquote>
+<p>Group ID: org.springframework.boot<br>
+Artifact ID: spring-boot-starter-data-jpa</p>
+</blockquote>
+<ul>
+<li><strong>Spring Boot Starter Mail</strong></li>
+</ul>
+<blockquote>
+<p>Group ID: org.springframework.boot<br>
+Artifact ID: spring-boot-starter-mail</p>
+</blockquote>
+<ul>
+<li><strong>MySQL Connector/J</strong></li>
+</ul>
+<blockquote>
+<p>Group ID: com.mysql<br>
+Artifact ID: mysql-connector-j<br>
+Scope: runtime -</p>
+</blockquote>
+<ul>
+<li><strong>Jakarta Servlet API</strong></li>
+</ul>
+<blockquote>
+<p>Group ID: jakarta.servlet<br>
+Artifact ID: jakarta.servlet-api<br>
+Scope: provided -</p>
+</blockquote>
+<ul>
+<li><strong>Spring Boot Starter Thymeleaf</strong></li>
+</ul>
+<blockquote>
+<p>Group ID: org.springframework.boot<br>
+Artifact ID: spring-boot-starter-thymeleaf</p>
+</blockquote>
+<ul>
+<li><strong>Spring Boot Starter Tomcat</strong></li>
+</ul>
+<blockquote>
+<p>Group ID: org.springframework.boot<br>
+Artifact ID: spring-boot-starter-tomcat  Scope: provided</p>
+</blockquote>
+<ul>
+<li><strong>Jakarta Mail</strong></li>
+</ul>
+<blockquote>
+<p>Group ID: com.sun.mail<br>
+Artifact ID: jakarta.mail<br>
+Version: 1.6.7 -</p>
+</blockquote>
+<ul>
+<li><strong>JSTL</strong></li>
+</ul>
+<blockquote>
+<p>Group ID: javax.servlet<br>
+Artifact ID: jstl<br>
+Version: 1.2 - Scope: provided</p>
+</blockquote>
+<ul>
+<li><strong>Tomcat Embed Jasper</strong></li>
+</ul>
+<blockquote>
+<p>Group ID: org.apache.tomcat.embed<br>
+Artifact ID: tomcat-embed-jasper<br>
+Scope: provided</p>
+</blockquote>
+<ul>
+<li><strong>Spring Context Support</strong></li>
+</ul>
+<blockquote>
+<p>Group ID: org.springframework<br>
+Artifact ID: spring-context-support</p>
+</blockquote>
+<ul>
+<li><strong>Spring Boot DevTools</strong></li>
+</ul>
+<blockquote>
+<p>Group ID: org.springframework.boot<br>
+Artifact ID: spring-boot-devtools<br>
+Scope: runtime - Optional: true</p>
+</blockquote>
+<h2 id="application.properties">application.properties</h2>
+<p><strong>Configure these</strong></p>
+<blockquote>
+<p><strong>Views Configuration</strong><br>
+spring.mvc.view.prefix: /<br>
+spring.mvc.view.suffix: .jsp<br>
+spring.thymeleaf.prefix: /<br>
+spring.thymeleaf.suffix: .jsp<br>
+logging.level.org.springframework=debug<br>
+<strong>Database Configuration</strong><br>
+spring.datasource.url=jdbc:mysql://localhost:3306/<strong>Your Database Name</strong><br>
+spring.datasource.username=<strong>userName</strong><br>
+spring.datasource.password=<strong>password</strong><br>
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver<br>
+<em><strong>Mail properties</strong></em><br>
+spring.mail.host = <a href="http://smtp.gmail.com">smtp.gmail.com</a><br>
+spring.mail.port=587<br>
+spring.mail.username=<strong><a href="mailto:your@gmail.com">your@gmail.com</a></strong><br>
+spring.mail.password=<strong>password</strong><br>
+spring.mail.properties.mail.smtp.auth=true<br>
+spring.mail.properties.mail.smtp.starttls.enable=true<br>
+spring.mail.properties.mail.smtp.starttls.required=true</p>
+</blockquote>
+<h2 id="vaccine-application">Vaccine Application</h2>
+<blockquote>
+<p><em><strong>VaccineAppApplication.java</strong></em> is the main class of the Vaccine App Spring Boot application. run this class to access the application. make sure to add all configuration required.</p>
+</blockquote>
+<h2 id="controller-classes">Controller Classes</h2>
+<p><strong>Register Control</strong></p>
+<blockquote>
+<p>Handles user registration. It receives data from <strong>register.jsp</strong>, validates the input, and delegates processing to the <strong>RegisterService</strong> class.</p>
+</blockquote>
+<p><strong>Login Control</strong></p>
+<blockquote>
+<p>Manages user login functionality. It receives data from <strong>login.jsp</strong>, validates the input, and delegates processing to the <strong>RegisterService</strong> class.</p>
+</blockquote>
+<p><strong>AddMember Control</strong></p>
+<blockquote>
+<p>Responsible for adding new members. It receives data from <strong>addMember.jsp</strong>, validates the input, and delegates processing to the <strong>RegisterService</strong> class.</p>
+</blockquote>
+<p><strong>ForgotPass Control</strong></p>
+<blockquote>
+<p>Deals with the forgot password feature. It receives data from <strong>forgot.jsp</strong>, validates the input, and delegates processing to the <strong>RegisterService</strong> class.</p>
+</blockquote>
+<p><strong>LogOut Control</strong></p>
+<blockquote>
+<p>Handles user logout functionality. When the user clicks the “logout” button on any JSP page, this controller invalidates the session.</p>
+</blockquote>
+<h2 id="service-classes">Service Classes</h2>
+<p><strong>RegisterService</strong></p>
+<blockquote>
+<p>Processes user registration logic, including validation and data storage to database. Sends the user about the registration and Credentials. if already user exists message is conveyed to the user.</p>
+</blockquote>
+<p><strong>LoginService</strong></p>
+<blockquote>
+<p>Manages user login logic, including validation and authentication.<br>
+if user has reached maximum login attempts account is blocked and notifies through mail.</p>
+</blockquote>
+<p><strong>AddMemberService</strong></p>
+<blockquote>
+<p>Handles the logic for adding new members, including validation and database operations.</p>
+</blockquote>
+<p><strong>ForgotPassService</strong></p>
+<blockquote>
+<p>Manages the logic for the forgot password feature, including validation and user notification. sends the otp to the user through mail and stores it and user reenters if it matches then only user is allowed to change password.</p>
+</blockquote>
+<h2 id="entity-classes">Entity Classes</h2>
+<p>Consists of two Entities, <em><strong>register</strong></em> and <em><strong>member</strong></em>.</p>
+<p><strong>Register Entity</strong><br>
+<em>columns</em></p>
+<blockquote>
+<p>Id, User Name, Email, Mobile Number, Date of Birth, Gender, password, Confirm password, Login Attempts, Member Count</p>
+</blockquote>
+<p><strong>Member Entity</strong><br>
+<em>columns</em></p>
+<blockquote>
+<p>Id, Member Name, User Email, Mobile Number, Date of Birth, Gender, Id Proof, Id Value, Dose, Vaccine type</p>
+</blockquote>
+<h1 id="dao-classes">DAO Classes</h1>
+<blockquote>
+<p>DAO (Data Access Object) classes in this project extend <code>JpaRepository&lt;&gt;</code> to leverage the built-in functionality for CRUD operations provided by Spring Data JPA. The use of JpaRepository eliminates the need to write explicit HQL (Hibernate Query Language) queries. ## Example Custom Query In certain scenarios, custom queries can be written using JPQL (Java Persistence Query Language) with the <code>@Query</code> annotation.<br>
+Here’s an example:</p>
+<pre class=" language-java"><code class="prism  language-java"><span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>data<span class="token punctuation">.</span>repository<span class="token punctuation">.</span>query<span class="token punctuation">.</span>Param<span class="token punctuation">;</span> 
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">YourRepository</span> <span class="token keyword">extends</span> <span class="token class-name">JpaRepository</span><span class="token operator">&lt;</span>YourEntity<span class="token punctuation">,</span> Long<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+ <span class="token annotation punctuation">@Query</span><span class="token punctuation">(</span><span class="token string">"SELECT CASE WHEN r.memberCount &lt; 4 THEN true ELSE false END FROM YourEntity r WHERE r.email = :email"</span><span class="token punctuation">)</span>
+  <span class="token keyword">boolean</span> <span class="token function">memberCount</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Param</span><span class="token punctuation">(</span><span class="token string">"email"</span><span class="token punctuation">)</span> String email<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+</code></pre>
+</blockquote>
+<h1 id="database">DataBase</h1>
+<blockquote>
+<p>To use the Vaccine App, you need to set up a database named <strong>Vaccine_db</strong>. You can either create the database and tables manually or let Spring Boot handle it for you by enabling DDL (Data Definition Language) auto-generation in the <code>application.properties</code> file.</p>
+</blockquote>
+<blockquote>
+<h2 id="option-1-manual-database-and-table-creation">Option 1: Manual Database and Table Creation</h2>
+<ol>
+<li>Create a database named <strong>Vaccine_db</strong> in your database management system (e.g., MySQL, PostgreSQL). 2. Create the necessary tables. Here are the SQL statements for creating tables named <strong>member</strong> and <strong>register</strong>:</li>
+</ol>
+<p><code>sql CREATE TABLE member ( MEMBER_ID INT PRIMARY KEY, MEMBER_NAME VARCHAR(255), GENDER VARCHAR(255), DOB DATE, ID_PROOF VARCHAR(255), ID_PROOF_VALUE VARCHAR(255), VACCINE_TYPE VARCHAR(255), DOSE INT, USER_EMAIL VARCHAR(255) );</code></p>
+</blockquote>
+<blockquote>
+<p><code>CREATE TABLE register ( ID INT PRIMARY KEY, USER_NAME VARCHAR(255), EMAIL VARCHAR(255), MOBILE_NUMBER VARCHAR(255), DOB DATE, GENDER VARCHAR(255), PASSWORD VARCHAR(255), LOGIN_ATTEMPT INT, MEMBER_COUNT INT );</code></p>
+</blockquote>
+<blockquote>
+<h2 id="option-2-automatic-database-and-table-creation-with-spring-boot">Option 2: Automatic Database and Table Creation with Spring Boot</h2>
+<ol>
+<li>Open the <code>src/main/resources/application.properties</code> file.</li>
+<li>Add the following configuration to enable DDL auto-generation:<br>
+<code>spring.jpa.hibernate.ddl-auto=update</code><br>
+With this configuration, Spring Boot will automatically create/update the database tables based on your entity classes.</li>
+</ol>
+<p>Note: Ensure that the database server is running before starting the Spring Boot application.</p>
+</blockquote>
+<h1 id="jsp-pages">JSP Pages</h1>
+<blockquote>
+<p>The Vaccine App utilizes several JSP (JavaServer Pages) for user interfaces and interactions. Below are details about key JSP pages in the application:</p>
+</blockquote>
+<blockquote>
+<h3 id="register-page-register.jsp">Register Page: <code>register.jsp</code></h3>
+<p>The register page allows users to sign up for the Vaccine App. It collects information such as user name, email, mobile number, date of birth, gender, and password.</p>
+<h3 id="login-page-login.jsp">Login Page: <code>login.jsp</code></h3>
+<p>The login page provides a user authentication interface. Users can enter their credentials (email and password) to log in to the Vaccine App.</p>
+<h3 id="add-member-page-addmember.jsp">Add Member Page: <code>addMember.jsp</code></h3>
+<p>On the add member page, users can input details for adding a new member to their profile. This typically includes member name, gender, date of birth, ID proof, ID proof value, vaccine type, and dose.</p>
+<h3 id="forgot-password-page-forgot.jsp">Forgot Password Page: <code>forgot.jsp</code></h3>
+<p>The forgot password page allows users to initiate the password recovery process. Users may provide their registered email and otp, and the application will handle the rest.</p>
+<h3 id="logout-button-logout.jsp-used-across-various-pages">Logout Button: <code>logout.jsp</code> (Used across various pages)</h3>
+<p>The logout button, when clicked, triggers the user logout process. It invalidates the user session, ensuring a secure logout from any page within the application.</p>
+</blockquote>
+<h1 id="flow-chart">Flow Chart</h1>
+<p><img src="https://mermaid.ink/img/pako:eNqVVttu4jAQ_ZVRnlKp7QfwsFII9E5pgV7oslqZZApWk7iynVZV039fx3aKc2N3nzAzc-bMnLEHPr2IxegNvA0nr1tYjFYZgMjX5muU5EIi_30nkJcOgOBnef4FR0c_iiCKUAg4YykWMPTLT7ghGzwwoUMdNMMNLXMUEPrVuR11xTY0K2Dk64PrH2n_CeMbJpVdiHfG4wLGfsPkYAxwWiVmuSzgzjenkGWSsyRBfpxow4EbHcQxTDBdl-We-Ltvu-SYxausU6OqOZMv1Pnm-Tqliv30u3WHX5A3rMzjTFL5YWs51dh7ktCYSMqULmff-DnyNxrh8Zvx4ohIYmFnhlJlBcmgdKyJUJM5b4F7mc9t1XqwBVx0TswEjTlnvC_kYu9Q-zXUge7cKwEvTY769Ghm6S5bgl2Z-KZaJgnHGFXXJLHwK3PFUEZbKG93AZNuuCP2xKVEsK1e76G1wOu6xFO_ZFTTEts1IzyuRakHxvJMwjBh0QuqW3_bfh_X7jRu_11q83yq12NyjR3NYZwSmhRwbx-aI33Vlo6wZdy3RvDg7yiagrjIB0OqKoXp4qaAxw6cUN6pfFWOquAZCqze7qPhRk6fP0yOZUfR2q28FrSsz-Gpc5_AO5VbsEFqFwixE37pCr8PrkMa4Ce7G1UTzlILgnbd3Gk0CFoqD4d7ZK4yV6t22LMhwrAjiSZuZAjDumod-9qGWF1Go_8Spv-6ql1sVrFhOalth5n_7XaUI5XNVjZriTff4ZrSGWttOc571Fu0szSpF3XZ7naIv16zhStnN7BHR-_QS5Grlxarn_fP0rzy5BZTXHkDdYwJf1l5q-xLxZFcsvlHFnkDyXM89PJXve4oUUNIvcEzSYSyYkwl4xPzfyFi2TPdeF9_AKq4y1U?type=png" alt="enter image description here"></p>
+<h1 id="watch-on-youtube">Watch on Youtube</h1>
+<p><a href="https://youtu.be/kWorKp_Sc_M">https://youtu.be/kWorKp_Sc_M</a></p>
+<h1 id="created-by">Created By</h1>
+<p><strong>SAHAS H S</strong><br>
+<a href="mailto:sahasgowda81@gmail.com">sahasgowda81@gmail.com</a></p>
+
+    </div>
+  </div>
+</body>
+
+</html>
